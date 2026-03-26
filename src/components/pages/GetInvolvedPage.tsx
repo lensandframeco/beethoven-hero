@@ -221,19 +221,7 @@ function ContactSection() {
 }
 
 export default function GetInvolvedPage({ navigate }: GetInvolvedPageProps) {
-  // Load Givebutter widget script
-  useEffect(() => {
-    if (document.querySelector('script[src*="givebutter"]')) return;
-    // Init givebutter
-    const init = document.createElement('script');
-    init.textContent = 'window.givebutter=window.givebutter||function(){(givebutter.q=givebutter.q||[]).push(arguments)};givebutter.l=+new Date;givebutter("setOptions",{accountId:"GxLAKMbyO3bXn6en"});';
-    document.head.appendChild(init);
-    // Load widget
-    const script = document.createElement('script');
-    script.src = 'https://widgets.givebutter.com/latest.umd.cjs?acct=GxLAKMbyO3bXn6en&p=other';
-    script.async = true;
-    document.head.appendChild(script);
-  }, []);
+  // Givebutter is embedded as an iframe below
 
   return (
     <div className="min-h-screen">
@@ -303,10 +291,16 @@ export default function GetInvolvedPage({ navigate }: GetInvolvedPageProps) {
           >
             Make a Donation
           </h2>
-          <div
-            className="bg-white rounded-lg overflow-hidden shadow-2xl"
-            dangerouslySetInnerHTML={{ __html: '<givebutter-widget id="odetojoy"></givebutter-widget>' }}
-          />
+          <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
+            <iframe
+              src="https://givebutter.com/embed/c/odetojoy"
+              width="100%"
+              height="600"
+              style={{ border: 'none' }}
+              title="Donate to Ode to Joy Foundation"
+              allow="payment"
+            />
+          </div>
         </div>
       </section>
 
