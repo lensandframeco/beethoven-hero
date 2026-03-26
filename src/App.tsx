@@ -9,7 +9,7 @@ import FilmmakersPage from './components/pages/FilmmakersPage';
 import PressPage from './components/pages/PressPage';
 import GetInvolvedPage from './components/pages/GetInvolvedPage';
 
-export type PageName = 'home' | 'following-the-ninth' | 'love-and-justice' | 'last-will' | 'filmmakers' | 'press' | 'get-involved' | 'login';
+export type PageName = 'home' | 'following-the-ninth' | 'love-and-justice' | 'last-will' | 'filmmakers' | 'press' | 'get-involved';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageName>('home');

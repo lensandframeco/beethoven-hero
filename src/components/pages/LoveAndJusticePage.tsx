@@ -44,7 +44,7 @@ export default function LoveAndJusticePage({ navigate }: LoveAndJusticePageProps
               className="text-white/60 text-lg md:text-xl italic"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              In the Footsteps of Beethoven's Rebel Opera: Fidelio
+              Beethoven in Chile
             </p>
           </div>
         </div>

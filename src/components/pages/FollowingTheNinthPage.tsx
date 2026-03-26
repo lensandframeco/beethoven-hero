@@ -75,7 +75,7 @@ export default function FollowingTheNinthPage({ navigate }: FollowingTheNinthPag
               className="text-white/60 text-lg md:text-xl italic"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              In the Footsteps of Beethoven's Final Symphony
+              Beethoven and the World in 2009
             </p>
           </div>
         </div>

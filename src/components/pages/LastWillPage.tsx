@@ -29,7 +29,7 @@ export default function LastWillPage({ navigate }: LastWillPageProps) {
               className="text-white/60 text-lg md:text-xl italic"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              In the Footsteps of Beethoven's Late Quartets
+              The Late String Quartets
             </p>
             <div className="mt-6 inline-block px-4 py-1.5 border border-[#c41e2a]/40 rounded-full">
               <span className="text-[#c41e2a] text-xs tracking-[0.2em] uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>

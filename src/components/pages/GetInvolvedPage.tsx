@@ -221,7 +221,19 @@ function ContactSection() {
 }
 
 export default function GetInvolvedPage({ navigate }: GetInvolvedPageProps) {
-  // Givebutter script is loaded globally via index.html
+  // Load Givebutter widget script
+  useEffect(() => {
+    if (document.querySelector('script[src*="givebutter"]')) return;
+    // Init givebutter
+    const init = document.createElement('script');
+    init.textContent = 'window.givebutter=window.givebutter||function(){(givebutter.q=givebutter.q||[]).push(arguments)};givebutter.l=+new Date;givebutter("setOptions",{accountId:"GxLAKMbyO3bXn6en"});';
+    document.head.appendChild(init);
+    // Load widget
+    const script = document.createElement('script');
+    script.src = 'https://widgets.givebutter.com/latest.umd.cjs?acct=GxLAKMbyO3bXn6en&p=other';
+    script.async = true;
+    document.head.appendChild(script);
+  }, []);
 
   return (
     <div className="min-h-screen">

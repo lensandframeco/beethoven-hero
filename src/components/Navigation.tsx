@@ -102,9 +102,6 @@ export default function Navigation({ currentPage, navigate }: NavigationProps) {
             <button onClick={() => handleNavigate('get-involved')} className="nav-link">
               Get Involved
             </button>
-            <button onClick={() => handleNavigate('login')} className="nav-link">
-              Login
-            </button>
 
             {/* Social Icons */}
             <div className="flex items-center space-x-3 ml-4">
@@ -164,9 +161,6 @@ export default function Navigation({ currentPage, navigate }: NavigationProps) {
             </button>
             <button onClick={() => handleNavigate('get-involved')} className="block w-full text-left py-2 nav-link">
               Get Involved
-            </button>
-            <button onClick={() => handleNavigate('login')} className="block w-full text-left py-2 nav-link">
-              Login
             </button>
           </div>
         </div>
