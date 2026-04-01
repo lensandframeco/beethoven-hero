@@ -1,8 +1,4 @@
-import { type PageName } from '../../App';
-
-interface PressPageProps {
-  navigate: (page: PageName) => void;
-}
+import { useNavigate } from 'react-router-dom';
 
 const followingTheNinthReviews = [
   {
@@ -62,7 +58,8 @@ const loveAndJusticeReviews = [
   },
 ];
 
-export default function PressPage({ navigate }: PressPageProps) {
+export default function PressPage() {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Hero Banner */}
@@ -101,7 +98,7 @@ export default function PressPage({ navigate }: PressPageProps) {
               <h2
                 className="text-2xl md:text-3xl font-light text-white cursor-pointer hover:text-white/80 transition-colors"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                onClick={() => navigate('following-the-ninth')}
+                onClick={() => navigate('/following-the-ninth')}
               >
                 Following the Ninth
               </h2>
@@ -139,7 +136,7 @@ export default function PressPage({ navigate }: PressPageProps) {
               <h2
                 className="text-2xl md:text-3xl font-light text-white cursor-pointer hover:text-white/80 transition-colors"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                onClick={() => navigate('love-and-justice')}
+                onClick={() => navigate('/love-and-justice')}
               >
                 Love and Justice
               </h2>

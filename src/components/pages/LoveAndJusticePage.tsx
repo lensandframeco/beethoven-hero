@@ -1,8 +1,4 @@
-import { type PageName } from '../../App';
-
-interface LoveAndJusticePageProps {
-  navigate: (page: PageName) => void;
-}
+import { useNavigate } from 'react-router-dom';
 
 const galleryImages = [
   {
@@ -19,7 +15,8 @@ const galleryImages = [
   },
 ];
 
-export default function LoveAndJusticePage({ navigate }: LoveAndJusticePageProps) {
+export default function LoveAndJusticePage() {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Hero Banner */}
@@ -219,7 +216,7 @@ export default function LoveAndJusticePage({ navigate }: LoveAndJusticePageProps
             </div>
           </div>
           <div className="text-center mt-12">
-            <button onClick={() => navigate('press')} className="btn-outline">
+            <button onClick={() => navigate('/press')} className="btn-outline">
               Read All Reviews
             </button>
           </div>
@@ -229,7 +226,7 @@ export default function LoveAndJusticePage({ navigate }: LoveAndJusticePageProps
       {/* Next Film CTA */}
       <section
         className="relative py-24 overflow-hidden cursor-pointer group"
-        onClick={() => navigate('last-will')}
+        onClick={() => navigate('/last-will')}
       >
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

@@ -1,10 +1,7 @@
-import { type PageName } from '../../App';
+import { useNavigate } from 'react-router-dom';
 
-interface LastWillPageProps {
-  navigate: (page: PageName) => void;
-}
-
-export default function LastWillPage({ navigate }: LastWillPageProps) {
+export default function LastWillPage() {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Hero Banner */}
@@ -180,7 +177,7 @@ export default function LastWillPage({ navigate }: LastWillPageProps) {
       {/* Back to Trilogy */}
       <section
         className="relative py-24 overflow-hidden cursor-pointer group"
-        onClick={() => navigate('following-the-ninth')}
+        onClick={() => navigate('/following-the-ninth')}
       >
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

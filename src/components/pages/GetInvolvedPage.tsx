@@ -1,9 +1,4 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { type PageName } from '../../App';
-
-interface GetInvolvedPageProps {
-  navigate: (page: PageName) => void;
-}
 
 function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -220,7 +215,7 @@ function ContactSection() {
   );
 }
 
-export default function GetInvolvedPage({ navigate }: GetInvolvedPageProps) {
+export default function GetInvolvedPage() {
   // Givebutter is embedded as an iframe below
 
   return (

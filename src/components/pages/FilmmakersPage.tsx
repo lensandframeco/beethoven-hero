@@ -1,8 +1,4 @@
-import { type PageName } from '../../App';
-
-interface FilmmakersPageProps {
-  navigate: (page: PageName) => void;
-}
+import { useNavigate } from 'react-router-dom';
 
 const filmmakers = [
   {
@@ -43,7 +39,8 @@ const filmmakers = [
   },
 ];
 
-export default function FilmmakersPage({ navigate }: FilmmakersPageProps) {
+export default function FilmmakersPage() {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Hero Banner */}
@@ -124,21 +121,21 @@ export default function FilmmakersPage({ navigate }: FilmmakersPageProps) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <button
-              onClick={() => navigate('following-the-ninth')}
+              onClick={() => navigate('/following-the-ninth')}
               className="bg-[#1a2633] hover:bg-[#1f2e3f] transition-colors rounded p-6 text-center"
             >
               <p className="text-white text-sm mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Film One</p>
               <p className="text-white/60 text-xs" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Following the Ninth</p>
             </button>
             <button
-              onClick={() => navigate('love-and-justice')}
+              onClick={() => navigate('/love-and-justice')}
               className="bg-[#1a2633] hover:bg-[#1f2e3f] transition-colors rounded p-6 text-center"
             >
               <p className="text-white text-sm mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Film Two</p>
               <p className="text-white/60 text-xs" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Love and Justice</p>
             </button>
             <button
-              onClick={() => navigate('last-will')}
+              onClick={() => navigate('/last-will')}
               className="bg-[#1a2633] hover:bg-[#1f2e3f] transition-colors rounded p-6 text-center"
             >
               <p className="text-white text-sm mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Film Three</p>

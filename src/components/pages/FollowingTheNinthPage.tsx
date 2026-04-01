@@ -1,8 +1,4 @@
-import { type PageName } from '../../App';
-
-interface FollowingTheNinthPageProps {
-  navigate: (page: PageName) => void;
-}
+import { useNavigate } from 'react-router-dom';
 
 const galleryImages = [
   {
@@ -50,7 +46,8 @@ const reviews = [
   },
 ];
 
-export default function FollowingTheNinthPage({ navigate }: FollowingTheNinthPageProps) {
+export default function FollowingTheNinthPage() {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Hero Banner */}
@@ -253,7 +250,7 @@ export default function FollowingTheNinthPage({ navigate }: FollowingTheNinthPag
             ))}
           </div>
           <div className="text-center mt-12">
-            <button onClick={() => navigate('press')} className="btn-outline">
+            <button onClick={() => navigate('/press')} className="btn-outline">
               Read All Reviews
             </button>
           </div>
@@ -263,7 +260,7 @@ export default function FollowingTheNinthPage({ navigate }: FollowingTheNinthPag
       {/* Next Film CTA */}
       <section
         className="relative py-24 overflow-hidden cursor-pointer group"
-        onClick={() => navigate('love-and-justice')}
+        onClick={() => navigate('/love-and-justice')}
       >
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
