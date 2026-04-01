@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import SEO from '../SEO';
 
 const filmmakers = [
   {
@@ -43,6 +44,12 @@ export default function FilmmakersPage() {
   const navigate = useNavigate();
   return (
     <div>
+      <SEO
+        title="The Filmmakers | Beethoven Hero"
+        description="Meet Kerry Candaele, Greg Barker, and the team behind the Beethoven Hero documentary trilogy — their vision, journeys, and the stories they set out to tell."
+        canonical="/filmmakers"
+        schema={{ "@context": "https://schema.org", "@type": "WebPage", "name": "The Filmmakers — Beethoven Hero", "description": "The creative team behind the Beethoven Hero documentary trilogy." }}
+      />
       {/* Hero Banner */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div

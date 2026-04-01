@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import HeroSlideshow from '../HeroSlideshow';
 import ReviewCarousel from '../ReviewCarousel';
+import SEO from '../SEO';
 
 const films = [
   {
@@ -30,6 +31,12 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
     <div>
+      <SEO
+        title="Beethoven Hero | Documentary Film Trilogy"
+        description="Beethoven Hero is a documentary trilogy by Kerry Candaele exploring how Beethoven's music has inspired courage and hope across the world — from the Berlin Wall to Tiananmen Square."
+        canonical="/"
+        schema={{ "@context": "https://schema.org", "@type": "Movie", "name": "Beethoven Hero", "description": "Documentary trilogy exploring Beethoven's Ninth Symphony and its global impact on human rights and democracy.", "director": { "@type": "Person", "name": "Kerry Candaele" } }}
+      />
       {/* Hero Slideshow */}
       <HeroSlideshow />
 

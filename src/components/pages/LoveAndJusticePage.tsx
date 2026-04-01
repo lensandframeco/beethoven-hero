@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import SEO from '../SEO';
 
 const galleryImages = [
   {
@@ -19,6 +20,12 @@ export default function LoveAndJusticePage() {
   const navigate = useNavigate();
   return (
     <div>
+      <SEO
+        title="Love and Justice | Beethoven Hero"
+        description="Love and Justice — a documentary by Kerry Candaele exploring how Beethoven's music became a rallying cry for social movements and human dignity across Latin America."
+        canonical="/love-and-justice"
+        schema={{ "@context": "https://schema.org", "@type": "Movie", "name": "Love and Justice", "description": "Documentary exploring Beethoven's music as a catalyst for social movements in Latin America.", "director": { "@type": "Person", "name": "Kerry Candaele" } }}
+      />
       {/* Hero Banner */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <div

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import SEO from '../SEO';
 
 const followingTheNinthReviews = [
   {
@@ -62,6 +63,12 @@ export default function PressPage() {
   const navigate = useNavigate();
   return (
     <div>
+      <SEO
+        title="Press | Beethoven Hero"
+        description="Press coverage, reviews, and critical acclaim for the Beethoven Hero documentary trilogy — from the New York Times, PBS, and film festivals worldwide."
+        canonical="/press"
+        schema={{ "@context": "https://schema.org", "@type": "WebPage", "name": "Press — Beethoven Hero", "description": "Press coverage and reviews for the Beethoven Hero documentary trilogy." }}
+      />
       {/* Hero Banner */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div

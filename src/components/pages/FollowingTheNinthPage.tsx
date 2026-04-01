@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import SEO from '../SEO';
 
 const galleryImages = [
   {
@@ -50,6 +51,12 @@ export default function FollowingTheNinthPage() {
   const navigate = useNavigate();
   return (
     <div>
+      <SEO
+        title="Following the Ninth | Beethoven Hero"
+        description="Following the Ninth — a documentary by Kerry Candaele tracing how Beethoven's Ninth Symphony has inspired human rights movements from Tiananmen Square to the fall of the Berlin Wall."
+        canonical="/following-the-ninth"
+        schema={{ "@context": "https://schema.org", "@type": "Movie", "name": "Following the Ninth", "description": "Documentary tracing the global impact of Beethoven's Ninth Symphony on human rights and democracy movements.", "director": { "@type": "Person", "name": "Kerry Candaele" } }}
+      />
       {/* Hero Banner */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <div

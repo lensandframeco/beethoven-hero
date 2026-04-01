@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
+import SEO from '../SEO';
 
 function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -220,6 +221,12 @@ export default function GetInvolvedPage() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Get Involved | Beethoven Hero"
+        description="Support the Beethoven Hero documentary trilogy — donate, host a screening, or get in touch with the filmmakers to bring these films to your community."
+        canonical="/get-involved"
+        schema={{ "@context": "https://schema.org", "@type": "WebPage", "name": "Get Involved — Beethoven Hero", "description": "Support the Beethoven Hero documentary trilogy through donations and screenings." }}
+      />
       {/* Hero Banner */}
       <section
         className="relative h-[50vh] flex items-center justify-center bg-cover bg-center"
