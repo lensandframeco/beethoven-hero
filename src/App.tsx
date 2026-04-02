@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import HomePage from './components/pages/HomePage';
@@ -11,6 +12,7 @@ import GetInvolvedPage from './components/pages/GetInvolvedPage';
 
 export default function App() {
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <div className="min-h-screen bg-[#0f1923] text-white">
         {/* Green accent bar */}
@@ -31,5 +33,6 @@ export default function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </HelmetProvider>
   );
 }
