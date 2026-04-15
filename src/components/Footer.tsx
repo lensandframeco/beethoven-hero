@@ -1,6 +1,10 @@
-import { Link } from 'react-router-dom';
+import { type PageName } from '../App';
 
-export default function Footer() {
+interface FooterProps {
+  navigate: (page: PageName) => void;
+}
+
+export default function Footer({ navigate }: FooterProps) {
   return (
     <footer className="bg-[#0a1219] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
@@ -23,21 +27,21 @@ export default function Footer() {
               Explore
             </h4>
             <div className="space-y-3">
-              <Link to="/following-the-ninth" className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
+              <button onClick={() => navigate('following-the-ninth')} className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
                 Following the Ninth
-              </Link>
-              <Link to="/love-and-justice" className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
+              </button>
+              <button onClick={() => navigate('love-and-justice')} className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
                 Love and Justice
-              </Link>
-              <Link to="/last-will" className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
+              </button>
+              <button onClick={() => navigate('last-will')} className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
                 Last Will & Testament
-              </Link>
-              <Link to="/filmmakers" className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
+              </button>
+              <button onClick={() => navigate('filmmakers')} className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
                 Filmmakers
-              </Link>
-              <Link to="/press" className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
+              </button>
+              <button onClick={() => navigate('press')} className="block text-white/60 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px' }}>
                 Press
-              </Link>
+              </button>
             </div>
           </div>
 

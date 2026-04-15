@@ -1,5 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import SEO from '../SEO';
+import { type PageName } from '../../App';
+
+interface PressPageProps {
+  navigate: (page: PageName) => void;
+}
 
 const followingTheNinthReviews = [
   {
@@ -59,16 +62,9 @@ const loveAndJusticeReviews = [
   },
 ];
 
-export default function PressPage() {
-  const navigate = useNavigate();
+export default function PressPage({ navigate }: PressPageProps) {
   return (
     <div>
-      <SEO
-        title="Press | Beethoven Hero"
-        description="Press coverage, reviews, and critical acclaim for the Beethoven Hero documentary trilogy — from the New York Times, PBS, and film festivals worldwide."
-        canonical="/press"
-        schema={{ "@context": "https://schema.org", "@type": "WebPage", "name": "Press — Beethoven Hero", "description": "Press coverage and reviews for the Beethoven Hero documentary trilogy." }}
-      />
       {/* Hero Banner */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div
@@ -105,7 +101,7 @@ export default function PressPage() {
               <h2
                 className="text-2xl md:text-3xl font-light text-white cursor-pointer hover:text-white/80 transition-colors"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                onClick={() => navigate('/following-the-ninth')}
+                onClick={() => navigate('following-the-ninth')}
               >
                 Following the Ninth
               </h2>
@@ -143,7 +139,7 @@ export default function PressPage() {
               <h2
                 className="text-2xl md:text-3xl font-light text-white cursor-pointer hover:text-white/80 transition-colors"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                onClick={() => navigate('/love-and-justice')}
+                onClick={() => navigate('love-and-justice')}
               >
                 Love and Justice
               </h2>

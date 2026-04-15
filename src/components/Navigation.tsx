@@ -1,22 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { type PageName } from '../App';
 
-export default function Navigation() {
+interface NavigationProps {
+  currentPage: PageName;
+  navigate: (page: PageName) => void;
+}
+
+export default function Navigation({ currentPage, navigate }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [filmsDropdownOpen, setFilmsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
-
-  // Close menus on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-    setFilmsDropdownOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [location.pathname]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -31,6 +30,12 @@ export default function Navigation() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const handleNavigate = (page: PageName) => {
+    navigate(page);
+    setMobileMenuOpen(false);
+    setFilmsDropdownOpen(false);
+  };
+
   return (
     <nav
       className={`fixed top-1 left-0 right-0 z-50 transition-all duration-500 ${
@@ -40,13 +45,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
+          <button onClick={() => handleNavigate('home')} className="flex-shrink-0">
             <img
               src="https://images.squarespace-cdn.com/content/v1/652f8f89cec326539e792de6/2a6968b0-5299-4606-8c2b-6d172dbae1fc/logowithsubtitle-transparent.png"
               alt="Beethoven Hero"
               className="h-14 w-auto"
             />
-          </Link>
+          </button>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-8">
@@ -63,34 +68,40 @@ export default function Navigation() {
               </button>
               {filmsDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-[#1a2633] border border-white/10 rounded shadow-xl dropdown-enter">
-                  <Link
-                    to="/following-the-ninth"
-                    className="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                  <button
+                    onClick={() => handleNavigate('following-the-ninth')}
+                    className="block w-full text-left px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}
                   >
                     Following the Ninth
-                  </Link>
-                  <Link
-                    to="/love-and-justice"
-                    className="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                  </button>
+                  <button
+                    onClick={() => handleNavigate('love-and-justice')}
+                    className="block w-full text-left px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}
                   >
                     Love and Justice
-                  </Link>
-                  <Link
-                    to="/last-will"
-                    className="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                  </button>
+                  <button
+                    onClick={() => handleNavigate('last-will')}
+                    className="block w-full text-left px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}
                   >
                     Last Will & Testament
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
 
-            <Link to="/filmmakers" className="nav-link">Filmmakers</Link>
-            <Link to="/press" className="nav-link">Press</Link>
-            <Link to="/get-involved" className="nav-link">Get Involved</Link>
+            <button onClick={() => handleNavigate('filmmakers')} className="nav-link">
+              Filmmakers
+            </button>
+            <button onClick={() => handleNavigate('press')} className="nav-link">
+              Press
+            </button>
+            <button onClick={() => handleNavigate('get-involved')} className="nav-link">
+              Get Involved
+            </button>
 
             {/* Social Icons */}
             <div className="flex items-center space-x-3 ml-4">
@@ -132,13 +143,25 @@ export default function Navigation() {
             <p className="text-white/40 text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Films
             </p>
-            <Link to="/following-the-ninth" className="block w-full text-left py-2 nav-link">Following the Ninth</Link>
-            <Link to="/love-and-justice" className="block w-full text-left py-2 nav-link">Love and Justice</Link>
-            <Link to="/last-will" className="block w-full text-left py-2 nav-link">Last Will & Testament</Link>
+            <button onClick={() => handleNavigate('following-the-ninth')} className="block w-full text-left py-2 nav-link">
+              Following the Ninth
+            </button>
+            <button onClick={() => handleNavigate('love-and-justice')} className="block w-full text-left py-2 nav-link">
+              Love and Justice
+            </button>
+            <button onClick={() => handleNavigate('last-will')} className="block w-full text-left py-2 nav-link">
+              Last Will & Testament
+            </button>
             <div className="border-t border-white/10 my-3" />
-            <Link to="/filmmakers" className="block w-full text-left py-2 nav-link">Filmmakers</Link>
-            <Link to="/press" className="block w-full text-left py-2 nav-link">Press</Link>
-            <Link to="/get-involved" className="block w-full text-left py-2 nav-link">Get Involved</Link>
+            <button onClick={() => handleNavigate('filmmakers')} className="block w-full text-left py-2 nav-link">
+              Filmmakers
+            </button>
+            <button onClick={() => handleNavigate('press')} className="block w-full text-left py-2 nav-link">
+              Press
+            </button>
+            <button onClick={() => handleNavigate('get-involved')} className="block w-full text-left py-2 nav-link">
+              Get Involved
+            </button>
           </div>
         </div>
       )}

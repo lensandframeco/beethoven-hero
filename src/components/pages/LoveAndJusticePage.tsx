@@ -1,5 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import SEO from '../SEO';
+import { type PageName } from '../../App';
+
+interface LoveAndJusticePageProps {
+  navigate: (page: PageName) => void;
+}
 
 const galleryImages = [
   {
@@ -16,16 +19,9 @@ const galleryImages = [
   },
 ];
 
-export default function LoveAndJusticePage() {
-  const navigate = useNavigate();
+export default function LoveAndJusticePage({ navigate }: LoveAndJusticePageProps) {
   return (
     <div>
-      <SEO
-        title="Love and Justice | Beethoven Hero"
-        description="Love and Justice — a documentary by Kerry Candaele exploring how Beethoven's music became a rallying cry for social movements and human dignity across Latin America."
-        canonical="/love-and-justice"
-        schema={{ "@context": "https://schema.org", "@type": "Movie", "name": "Love and Justice", "description": "Documentary exploring Beethoven's music as a catalyst for social movements in Latin America.", "director": { "@type": "Person", "name": "Kerry Candaele" } }}
-      />
       {/* Hero Banner */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <div
@@ -223,7 +219,7 @@ export default function LoveAndJusticePage() {
             </div>
           </div>
           <div className="text-center mt-12">
-            <button onClick={() => navigate('/press')} className="btn-outline">
+            <button onClick={() => navigate('press')} className="btn-outline">
               Read All Reviews
             </button>
           </div>
@@ -233,7 +229,7 @@ export default function LoveAndJusticePage() {
       {/* Next Film CTA */}
       <section
         className="relative py-24 overflow-hidden cursor-pointer group"
-        onClick={() => navigate('/last-will')}
+        onClick={() => navigate('last-will')}
       >
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

@@ -1,5 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import SEO from '../SEO';
+import { type PageName } from '../../App';
+
+interface FilmmakersPageProps {
+  navigate: (page: PageName) => void;
+}
 
 const filmmakers = [
   {
@@ -40,16 +43,9 @@ const filmmakers = [
   },
 ];
 
-export default function FilmmakersPage() {
-  const navigate = useNavigate();
+export default function FilmmakersPage({ navigate }: FilmmakersPageProps) {
   return (
     <div>
-      <SEO
-        title="The Filmmakers | Beethoven Hero"
-        description="Meet Kerry Candaele, Greg Barker, and the team behind the Beethoven Hero documentary trilogy — their vision, journeys, and the stories they set out to tell."
-        canonical="/filmmakers"
-        schema={{ "@context": "https://schema.org", "@type": "WebPage", "name": "The Filmmakers — Beethoven Hero", "description": "The creative team behind the Beethoven Hero documentary trilogy." }}
-      />
       {/* Hero Banner */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div
@@ -128,21 +124,21 @@ export default function FilmmakersPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <button
-              onClick={() => navigate('/following-the-ninth')}
+              onClick={() => navigate('following-the-ninth')}
               className="bg-[#1a2633] hover:bg-[#1f2e3f] transition-colors rounded p-6 text-center"
             >
               <p className="text-white text-sm mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Film One</p>
               <p className="text-white/60 text-xs" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Following the Ninth</p>
             </button>
             <button
-              onClick={() => navigate('/love-and-justice')}
+              onClick={() => navigate('love-and-justice')}
               className="bg-[#1a2633] hover:bg-[#1f2e3f] transition-colors rounded p-6 text-center"
             >
               <p className="text-white text-sm mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Film Two</p>
               <p className="text-white/60 text-xs" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Love and Justice</p>
             </button>
             <button
-              onClick={() => navigate('/last-will')}
+              onClick={() => navigate('last-will')}
               className="bg-[#1a2633] hover:bg-[#1f2e3f] transition-colors rounded p-6 text-center"
             >
               <p className="text-white text-sm mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>Film Three</p>

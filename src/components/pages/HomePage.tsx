@@ -1,7 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { type PageName } from '../../App';
 import HeroSlideshow from '../HeroSlideshow';
 import ReviewCarousel from '../ReviewCarousel';
-import SEO from '../SEO';
+
+interface HomePageProps {
+  navigate: (page: PageName) => void;
+}
 
 const films = [
   {
@@ -9,34 +12,27 @@ const films = [
     subtitle: 'Beethoven and the World in 2009',
     image: 'https://images.squarespace-cdn.com/content/v1/652f8f89cec326539e792de6/6d008f4e-e591-40fd-a1f3-b2e04797b631/followingtheninth.jpg',
     description: 'From Tiananmen Square to the fall of the Berlin Wall, from a Chilean political prison to the streets of Soweto, this documentary tracks the extraordinary ways Beethoven\'s Ninth Symphony has been adopted by freedom movements across the globe. Following journalist and author Kerry Candaele across four continents, the film reveals the power of music to inspire hope and resistance in the face of oppression.',
-    path: '/following-the-ninth',
+    page: 'following-the-ninth' as PageName,
   },
   {
     title: 'Love and Justice',
     subtitle: 'Beethoven in Chile',
     image: 'https://images.squarespace-cdn.com/content/v1/652f8f89cec326539e792de6/30003bd5-b4d3-431e-b9a9-f9f46e349e6b/Loveandjustice.jpg',
     description: 'In Pinochet\'s Chile, political prisoners sustained themselves by singing the "Ode to Joy" chorus from Beethoven\'s Ninth. Love and Justice returns to Chile to explore how Beethoven\'s only opera, Fidelio — a story of a woman who risks everything to free her unjustly imprisoned husband — resonates with those who lived through dictatorship, torture, and the long struggle for justice.',
-    path: '/love-and-justice',
+    page: 'love-and-justice' as PageName,
   },
   {
     title: 'Last Will & Testament',
     subtitle: 'The Late String Quartets',
     image: 'https://images.squarespace-cdn.com/content/v1/652f8f89cec326539e792de6/c4b374c1-40e8-47a7-8009-fce57ecac60d/lastwillandtestament.jpg',
     description: 'The final chapter of the trilogy turns inward, exploring the late string quartets that Beethoven composed in the last years of his life — music so radical and intimate that it baffled his contemporaries but has come to be regarded as among the greatest achievements in Western art. How do performers and listeners today grapple with music that pushes the boundaries of human expression?',
-    path: '/last-will',
+    page: 'last-will' as PageName,
   },
 ];
 
-export default function HomePage() {
-  const navigate = useNavigate();
+export default function HomePage({ navigate }: HomePageProps) {
   return (
     <div>
-      <SEO
-        title="Beethoven Hero | Documentary Film Trilogy"
-        description="Beethoven Hero is a documentary trilogy by Kerry Candaele exploring how Beethoven's music has inspired courage and hope across the world — from the Berlin Wall to Tiananmen Square."
-        canonical="/"
-        schema={{ "@context": "https://schema.org", "@type": "Movie", "name": "Beethoven Hero", "description": "Documentary trilogy exploring Beethoven's Ninth Symphony and its global impact on human rights and democracy.", "director": { "@type": "Person", "name": "Kerry Candaele" } }}
-      />
       {/* Hero Slideshow */}
       <HeroSlideshow />
 
@@ -65,7 +61,7 @@ export default function HomePage() {
                 </p>
               </div>
               <button
-                onClick={() => navigate('/filmmakers')}
+                onClick={() => navigate('filmmakers')}
                 className="btn-outline mt-10"
               >
                 Meet the Filmmakers
@@ -105,7 +101,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {films.map((film) => (
-              <div key={film.title} className="film-card group cursor-pointer" onClick={() => navigate(film.path)}>
+              <div key={film.title} className="film-card group cursor-pointer" onClick={() => navigate(film.page)}>
                 <div className="aspect-[2/3] overflow-hidden">
                   <img
                     src={film.image}

@@ -1,16 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-import SEO from '../SEO';
+import { type PageName } from '../../App';
 
-export default function LastWillPage() {
-  const navigate = useNavigate();
+interface LastWillPageProps {
+  navigate: (page: PageName) => void;
+}
+
+export default function LastWillPage({ navigate }: LastWillPageProps) {
   return (
     <div>
-      <SEO
-        title="Last Will and Temperament | Beethoven Hero"
-        description="Last Will and Temperament — a documentary by Kerry Candaele exploring Beethoven's late string quartets and the intimate, radical music he wrote at the end of his life."
-        canonical="/last-will"
-        schema={{ "@context": "https://schema.org", "@type": "Movie", "name": "Last Will and Temperament", "description": "Documentary exploring Beethoven's late string quartets and their enduring emotional power.", "director": { "@type": "Person", "name": "Kerry Candaele" } }}
-      />
       {/* Hero Banner */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <div
@@ -184,7 +180,7 @@ export default function LastWillPage() {
       {/* Back to Trilogy */}
       <section
         className="relative py-24 overflow-hidden cursor-pointer group"
-        onClick={() => navigate('/following-the-ninth')}
+        onClick={() => navigate('following-the-ninth')}
       >
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

@@ -1,5 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import SEO from '../SEO';
+import { type PageName } from '../../App';
+
+interface FollowingTheNinthPageProps {
+  navigate: (page: PageName) => void;
+}
 
 const galleryImages = [
   {
@@ -47,16 +50,9 @@ const reviews = [
   },
 ];
 
-export default function FollowingTheNinthPage() {
-  const navigate = useNavigate();
+export default function FollowingTheNinthPage({ navigate }: FollowingTheNinthPageProps) {
   return (
     <div>
-      <SEO
-        title="Following the Ninth | Beethoven Hero"
-        description="Following the Ninth — a documentary by Kerry Candaele tracing how Beethoven's Ninth Symphony has inspired human rights movements from Tiananmen Square to the fall of the Berlin Wall."
-        canonical="/following-the-ninth"
-        schema={{ "@context": "https://schema.org", "@type": "Movie", "name": "Following the Ninth", "description": "Documentary tracing the global impact of Beethoven's Ninth Symphony on human rights and democracy movements.", "director": { "@type": "Person", "name": "Kerry Candaele" } }}
-      />
       {/* Hero Banner */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <div
@@ -257,7 +253,7 @@ export default function FollowingTheNinthPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <button onClick={() => navigate('/press')} className="btn-outline">
+            <button onClick={() => navigate('press')} className="btn-outline">
               Read All Reviews
             </button>
           </div>
@@ -267,7 +263,7 @@ export default function FollowingTheNinthPage() {
       {/* Next Film CTA */}
       <section
         className="relative py-24 overflow-hidden cursor-pointer group"
-        onClick={() => navigate('/love-and-justice')}
+        onClick={() => navigate('love-and-justice')}
       >
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
