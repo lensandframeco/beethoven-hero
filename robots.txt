@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://www.beethovenhero.com/sitemap.xml
+Sitemap: https://www.makeitglow.co/sites/beethoven-hero/sitemap.xml
